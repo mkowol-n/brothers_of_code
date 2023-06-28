@@ -1,0 +1,3 @@
+enum BaseBottomNavigationItems {
+  gallery, comments
+}
