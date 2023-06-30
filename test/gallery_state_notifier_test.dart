@@ -4,7 +4,7 @@ import 'package:brothers_of_code/features/gallery/domain/usecase/get_gallery_ima
 import 'package:brothers_of_code/features/gallery/presentation/gallery_state_notifier.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'state_test.dart';
+import 'state_test_helper.dart';
 
 class MockUploadedDocumentsDao extends Mock
     implements GetGalleryImagesUseCase {}
