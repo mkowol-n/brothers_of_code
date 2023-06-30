@@ -4,6 +4,8 @@ import 'package:brothers_of_code/core/network/dio.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../mapper/mapper.dart';
+
 final appRouterProvider = Provider<AppRouter>((ref) {
   return AppRouter();
 });
@@ -15,4 +17,8 @@ final dioProvider = Provider<Dio>((ref) {
 
 final apiProvider = Provider<ApiProvider>((ref) {
   return ApiProvider(ref.read(dioProvider));
+});
+
+final mapperProvider = Provider<Mappr>((ref) {
+  return Mappr();
 });

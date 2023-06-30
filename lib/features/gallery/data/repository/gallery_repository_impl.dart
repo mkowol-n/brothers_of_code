@@ -1,18 +1,18 @@
-
 import 'package:brothers_of_code/core/network/api_provider.dart';
-import 'package:brothers_of_code/features/gallery/gallery_mapper.dart';
 
+import '../../../../core/mapper/mapper.dart';
 import '../../domain/model/gallery_model.dart';
 import '../../domain/repository/gallery_repository.dart';
 
 class GalleryRepositoryImpl implements GalleryRepository {
   final ApiProvider _apiProvider;
+  final Mappr _mappr;
 
-  GalleryRepositoryImpl(this._apiProvider);
+  GalleryRepositoryImpl(this._apiProvider, this._mappr);
 
   @override
   Future<List<GalleryModel>> getImages() async {
     final response = await _apiProvider.getGallery();
-    return response.map((e) => e.toDomain()).toList();
+    return _mappr.convertList(response);
   }
 }
