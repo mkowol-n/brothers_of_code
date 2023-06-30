@@ -1,4 +1,5 @@
 
+import 'package:brothers_of_code/core/source/source_type.dart';
 import 'package:brothers_of_code/features/gallery/domain/repository/gallery_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -12,8 +13,8 @@ class GetGalleryImagesUseCaseImpl implements GetGalleryImagesUseCase {
   GetGalleryImagesUseCaseImpl(this.galleryRepository);
 
   @override
-  Future<List<GalleryModel>> call() async {
-    return await galleryRepository.getImages();
+  Future<List<GalleryModel>> call(SourceType type) async {
+    return await galleryRepository.getImages(type);
   }
 }
 

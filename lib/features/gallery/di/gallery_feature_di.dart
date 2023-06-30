@@ -10,7 +10,7 @@ import '../domain/usecase/get_gallery_images_use_case.dart';
 import '../presentation/gallery_state_notifier.dart';
 
 final galleryRepositoryProvider = Provider<GalleryRepository>((ref) {
-  return GalleryRepositoryImpl(ref.read(apiProvider), ref.read(mapperProvider));
+  return GalleryRepositoryImpl(ref.read(apiProvider), ref.read(mapperProvider), ref.read(mockDAO));
 });
 
 final galleryUseCaseProvider =
