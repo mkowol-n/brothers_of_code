@@ -1,0 +1,28 @@
+name: Unit Tests
+
+on:
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.10.5
+
+      - name: Install Dependencies
+        run: flutter pub get
+      - run: flutter pub run easy_localization:generate --source-dir ./assets/translations
+      - run: flutter pub run easy_localization:generate -S assets/translations -f keys -o locale_keys.g.dart
+      - run: flutter packages pub run build_runner build
+
+      - name: Run Unit Tests
+        run: flutter test
