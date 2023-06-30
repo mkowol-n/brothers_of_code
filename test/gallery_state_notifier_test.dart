@@ -12,6 +12,7 @@ class MockUploadedDocumentsDao extends Mock
 
 void main() {
   final mockUseCase = MockUploadedDocumentsDao();
+
   stateTest(
     'when useCase call succeed then success state will be returned',
     stateProvider: GalleryStateNotifier(mockUseCase),
