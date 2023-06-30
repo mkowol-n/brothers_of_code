@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../core/enums/base_bottom_navigation_items.dart';
+import '../coreui/base_app_bar.dart';
 import '../coreui/base_cross_fade.dart';
 
 @RoutePage(name: 'MainScreenRoute')
@@ -17,6 +18,10 @@ class MainScreen extends HookWidget {
   Widget build(BuildContext context) {
     final bottomItem = useState(BaseBottomNavigationItems.gallery);
     return Scaffold(
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(55),
+        child: BaseAppBar(title: "Base scaffold",),
+      ),
       body: BaseCrossFade<BaseBottomNavigationItems>(
         value: bottomItem.value,
         builder: (context, bItem) {
