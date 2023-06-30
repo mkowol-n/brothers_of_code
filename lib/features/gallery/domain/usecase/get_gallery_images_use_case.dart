@@ -1,4 +1,6 @@
 
+import '../model/gallery_model.dart';
+
 abstract class GetGalleryImagesUseCase {
-  Future<String> call();
+  Future<List<GalleryModel>> call();
 }

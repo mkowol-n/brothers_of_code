@@ -19,6 +19,7 @@ dependencies:
   get_it: ^7.2.0
   dio: ^5.2.1+1
   cross_fade: ^0.3.1
+  transparent_image: ^2.0.1
   riverpod_annotation: ^2.1.1
 
 dev_dependencies:

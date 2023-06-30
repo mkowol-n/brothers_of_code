@@ -1,4 +1,6 @@
 
+import '../model/gallery_model.dart';
+
 abstract class GalleryRepository {
-  Future<String> getImages();
+  Future<List<GalleryModel>> getImages();
 }
