@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  auto_mappr: ^1.5.0
   auto_route: ^7.5.0
   cupertino_icons: ^1.0.2
   retrofit: ^4.0.1
