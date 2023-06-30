@@ -3,6 +3,8 @@ import 'package:brothers_of_code/coreui/bottom_nav_bar/base_bottom_navigation_ba
 import 'package:brothers_of_code/coreui/bottom_nav_bar/base_botton_navigation_bar.dart';
 import 'package:brothers_of_code/features/comments/comments_screen.dart';
 import 'package:brothers_of_code/features/gallery/presentation/gallery_screen.dart';
+import 'package:brothers_of_code/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -18,9 +20,11 @@ class MainScreen extends HookWidget {
   Widget build(BuildContext context) {
     final bottomItem = useState(BaseBottomNavigationItems.gallery);
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(55),
-        child: BaseAppBar(title: "Base scaffold",),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(55),
+        child: BaseAppBar(
+          title: LocaleKeys.main_screen_title.tr(),
+        ),
       ),
       body: BaseCrossFade<BaseBottomNavigationItems>(
         value: bottomItem.value,
@@ -39,11 +43,14 @@ class MainScreen extends HookWidget {
       ),
       bottomNavigationBar: BaseBottomNavigationBar(
         items: [
-          BaseBottomNavigationBarItem(icon: Icons.abc, text: 'Gallery'),
-          //TODO easy localization
           BaseBottomNavigationBarItem(
-              icon: Icons.ac_unit_outlined, text: 'Comments')
-          //TODO easy localization
+            icon: Icons.abc,
+            text: LocaleKeys.gallery.tr(),
+          ),
+          BaseBottomNavigationBarItem(
+            icon: Icons.ac_unit_outlined,
+            text: LocaleKeys.comments.tr(),
+          )
         ],
         onTap: (item) {
           bottomItem.value = BaseBottomNavigationItems.values[item];
