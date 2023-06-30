@@ -9,3 +9,7 @@ class RequestState<T> with _$RequestState<T> {
   const factory RequestState.initial() = Initial;
   factory RequestState.error(Exception exception) = Error;
 }
+
+extension InvokeRequestState<T> on RequestState<T> {
+  T call() => (this as Data<T>).data;
+}
