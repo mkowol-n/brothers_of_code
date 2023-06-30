@@ -1,3 +1,4 @@
+import 'package:brothers_of_code/core/source/source_type.dart';
 import 'package:brothers_of_code/core/state/request_state.dart';
 import 'package:brothers_of_code/features/gallery/domain/model/gallery_model.dart';
 import 'package:brothers_of_code/features/gallery/domain/usecase/get_gallery_images_use_case.dart';
@@ -21,11 +22,11 @@ void main() {
       state is Data && state().isEmpty,
     ],
     when: [
-      () => when(mockUseCase)
+      () => when(() => mockUseCase.call(SourceType.remoteThenLocal))
           .thenAnswer((invocation) async => List<GalleryModel>.empty())
     ],
     verify: [
-      () => verify(mockUseCase).called(1),
+      () => verify(() => mockUseCase.call(SourceType.remoteThenLocal)).called(1),
     ],
   );
 }
