@@ -20,6 +20,9 @@ jobs:
 
       - name: Install Dependencies
         run: flutter pub get
+      - run: flutter pub run easy_localization:generate --source-dir ./assets/translations
+      - run: flutter pub run easy_localization:generate -S assets/translations -f keys -o locale_keys.g.dart
+      - run: flutter packages pub run build_runner build
 
       - name: Run Unit Tests
         run: flutter test
