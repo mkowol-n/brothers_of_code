@@ -18,6 +18,7 @@ class AsyncHandler<STATE, T> {
     } on Exception catch (exception) {
       // ignore: avoid_print
       print(exception);
+
       _emitNewState(RequestState.error(exception), reducer);
     }
   }
