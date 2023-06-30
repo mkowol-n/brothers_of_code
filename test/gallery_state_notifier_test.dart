@@ -9,10 +9,6 @@ import 'state_test.dart';
 class MockUploadedDocumentsDao extends Mock
     implements GetGalleryImagesUseCase {}
 
-class Listener<T> extends Mock {
-  void call(T? previous, T next);
-}
-
 void main() {
   final mockUseCase = MockUploadedDocumentsDao();
   stateTest(
